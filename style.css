@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0d0d0d;
+  color: #f0f0f0;
+  min-height: 100vh;
+  padding: 30px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #c084fc, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+#webcam-container {
+  position: relative;
+  width: 320px;
+  height: 240px;
+  margin: 0 auto 25px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid #7c3aed;
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.15);
+}
+
+#webcam {
+  width: 320px;
+  height: 240px;
+  transform: scaleX(-1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+#canvas {
+  width: 320px;
+  height: 240px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(-1);
+}
+
+#add-class-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+#class-name-input {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #7c3aed;
+  background: #1a1a1a;
+  color: #f0f0f0;
+  font-size: 0.9rem;
+  width: 210px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+#class-name-input:focus {
+  border-color: #f472b6;
+}
+
+#class-name-input::placeholder {
+  color: #555;
+}
+
+#add-class-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #7c3aed, #db2777);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+#add-class-btn:hover {
+  opacity: 0.85;
+}
+
+#classes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.class-card {
+  background: #141414;
+  border: 1.5px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 16px 18px;
+  width: 175px;
+  text-align: center;
+  transition: border 0.2s;
+}
+
+.class-card:hover {
+  border-color: #7c3aed;
+}
+
+.class-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  background: linear-gradient(90deg, #c084fc, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: capitalize;
+}
+
+.class-card p {
+  font-size: 0.78rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.class-card button {
+  padding: 8px 12px;
+  background: transparent;
+  color: #c084fc;
+  border: 1.5px solid #7c3aed;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.class-card button:hover {
+  background: linear-gradient(135deg, #7c3aed, #db2777);
+  color: white;
+  border-color: transparent;
+}
+
+#predict {
+  display: block;
+  margin: 0 auto 25px auto;
+  padding: 12px 45px;
+  background: linear-gradient(135deg, #7c3aed, #db2777);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s;
+}
+
+#predict:hover {
+  opacity: 0.85;
+}
+
+#result {
+  text-align: center;
+  background: #141414;
+  border: 1.5px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 22px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+#label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #c084fc, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+  white-space: pre-line;
+}
+
+#confidence {
+  font-size: 0.88rem;
+  color: #555;
+}

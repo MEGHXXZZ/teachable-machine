@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teachable Machine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Teachable Machine</h1>
+
+  <!-- Webcam container with canvas on top -->
+  <div id="webcam-container">
+    <video id="webcam" autoplay></video>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <!-- Add new class input -->
+  <div id="add-class-section">
+    <input type="text" id="class-name-input" placeholder="Enter class name e.g. Rock">
+    <button id="add-class-btn">Add Class</button>
+  </div>
+
+  <!-- Classes will appear here dynamically -->
+  <div id="classes-container"></div>
+
+  <!-- Predict button -->
+  <button id="predict">Start Predicting</button>
+
+  <!-- Result -->
+  <div id="result">
+    <p id="label">Waiting...</p>
+    <p id="confidence"></p>
+  </div>
+
+  <!-- MediaPipe FIRST -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+  <!-- TensorFlow -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+
+  <!-- Your code LAST -->
+  <script src="app.js"></script>
+
+</body>
+</html>
