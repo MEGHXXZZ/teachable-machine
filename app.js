@@ -16,7 +16,7 @@ const ctx = canvas.getContext('2d');
 
 const hands = new Hands({
   locateFile: (file) =>
-    `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+   `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/${file}`
 });
 
 hands.setOptions({
