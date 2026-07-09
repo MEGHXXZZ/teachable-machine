@@ -93,16 +93,16 @@ async function main() {
 
   console.log(`Video size: ${webcamElement.videoWidth}x${webcamElement.videoHeight}`);
 
-  const camera = new Camera(webcamElement, {
-    onFrame: async () => {
-      await hands.send({ image: webcamElement });
-    },
-    width: webcamElement.videoWidth,
-    height: webcamElement.videoHeight
-  });
+// Manual loop instead of Camera utility
+async function sendToMediaPipe() {
+  if (webcamElement.readyState >= 2) {
+    await hands.send({ image: webcamElement });
+  }
+  requestAnimationFrame(sendToMediaPipe);
+}
 
-  camera.start();
-  console.log('Camera and MediaPipe started!');
+sendToMediaPipe();
+console.log('Camera and MediaPipe started!');
 
   setTimeout(() => {
   console.log('Testing hands.onResults — is it firing?');
