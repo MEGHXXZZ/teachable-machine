@@ -16,7 +16,7 @@ const ctx = canvas.getContext('2d');
 
 const hands = new Hands({
   locateFile: (file) =>
-   `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/${file}`
+    `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/${file}`
 });
 
 hands.setOptions({
@@ -47,7 +47,6 @@ hands.onResults(async (results) => {
       const img = tf.browser.fromPixels(webcamElement);
       const features = mobilenetModel.infer(img, true);
       const result = await classifier.predictClass(features);
-
       const numHands = results.multiHandLandmarks.length;
       if (numHands === 1) {
         labelElement.innerText = classNames[result.label];
@@ -93,22 +92,15 @@ async function main() {
 
   console.log(`Video size: ${webcamElement.videoWidth}x${webcamElement.videoHeight}`);
 
-// Manual loop instead of Camera utility
-async function sendToMediaPipe() {
-  if (webcamElement.readyState >= 2) {
-    await hands.send({ image: webcamElement });
+  async function sendToMediaPipe() {
+    if (webcamElement.readyState >= 2) {
+      await hands.send({ image: webcamElement });
+    }
+    requestAnimationFrame(sendToMediaPipe);
   }
-  requestAnimationFrame(sendToMediaPipe);
-}
 
-sendToMediaPipe();
-console.log('Camera and MediaPipe started!');
-
-  setTimeout(() => {
-  console.log('Testing hands.onResults — is it firing?');
-  hands.send({ image: webcamElement });
-}, 2000);
-
+  sendToMediaPipe();
+  console.log('Camera and MediaPipe started!');
 }
 
 main();
