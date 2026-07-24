@@ -33,7 +33,7 @@ hands.onResults(async (results) => {
 
     for (const landmarks of results.multiHandLandmarks) {
       drawConnectors(ctx, landmarks, HAND_CONNECTIONS, {
-        color: '#c084fc',
+        color: '#050009',
         lineWidth: 2
       });
       drawLandmarks(ctx, landmarks, {
